@@ -459,7 +459,10 @@ struct msm_snapshot_pp_status {
 #define CFG_SET_ISO 42//Div2-SW6-MM-HL-Camera-ISO-00+
 #define CFG_SET_CAF 43//Div2-SW6-MM-HL-Camera-CAF-00+
 #define CFG_SET_touchAEC 44
-#define CFG_MAX	45//Div2-SW6-MM-HL-Camera-ISO-00*
+#define CFG_SET_AFMODE 45//Div6D1-CL-Camera-autofocus-06+
+#define CFG_SET_DIS 46
+#define CFG_GET_AFSTATE 47//Div2-SW6-MM-CL-CancelAF-00+
+#define CFG_MAX	48
 #else
 #define CFG_MAX 			29
 #endif
@@ -595,6 +598,7 @@ struct msm_snapshot_pp_status {
 #define AF_MODE_NORMAL   0
 #define AF_MODE_MACRO 1
 #define AF_MODE_AUTO 2
+#define AF_MODE_CAF
 //Div6D1-CL-Camera-SensorInfo-01+}
 //Div6D1-HL-Camera-Camcorder_HD-00+{
 //Div6D1-CL-Camera-D1_WVGA-00*{
@@ -694,6 +698,8 @@ struct sensor_cfg_data {
         int8_t meteringmod;
         int8_t scenemod;
         int8_t CAF;//Div2-SW6-MM-HL-Camera-CAF-00+
+        int8_t afmode;//Div6D1-CL-Camera-autofocus-06+
+        int8_t dis;
         struct touchAEC AECIndex;
         struct camera_focus_rectangle focusrec;//Div6D1-CL-Camera-autofocus-01+        
         int8_t hd;//Div6D1-HL-Camera-Camcorder_HD-00+
